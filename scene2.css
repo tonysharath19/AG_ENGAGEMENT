@@ -44,7 +44,8 @@ body, html {
   z-index: 999;
   cursor: pointer;
   text-align: center;
-  text-shadow: 0 0 12px #ffffff, 0 0 20px #ffffff, 0 0 30px #ff69b4;
+  /*text-shadow: 0 0 12px #ffffff, 0 0 20px #ffffff, 0 0 30px #ff69b4;*/
+  text-shadow: 0 0 8px #0c0000, 0 0 14px #060000;
   animation: pulseGlow 2s infinite;
   padding: 0;
   border-radius: 0;

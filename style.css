@@ -39,7 +39,7 @@ body, html {
   
   #hint {
     position: absolute;
-    top: 15vh; /* Use viewport height for vertical positioning */
+    top: 35vh; /* Use viewport height for vertical positioning */
     width: 100%;
     font-family: 'Almendra', cursive;
     text-align: center;
@@ -58,7 +58,7 @@ body, html {
     position: absolute;
     top: 60%;
     width: 30vw; /* Make hearts responsive to viewport width */
-    max-width: 150px; /* Set a max-width for larger screens */
+    max-width: 100px; /* Set a max-width for larger screens */
     height: auto;
     transform: translateY(-50%);
     transition: all 1s ease, opacity 0.5s ease; /* Added opacity to transition */

@@ -91,10 +91,10 @@ body, html {
 #initials {
     display: none;
     position: absolute;
-    top: 150px;
+    top: 130px;
     left: 50%;
     width: 90vw; /* Make initials responsive to viewport width */
-    max-width: 250px; /* Set a max-width for larger screens */
+    max-width: 350px; /* Set a max-width for larger screens */
     transform: translateX(-50%);
     z-index: 4;
     opacity: 1;

@@ -1,55 +1,31 @@
-const leftHeart = document.getElementById("leftHeart");
-const rightHeart = document.getElementById("rightHeart");
-const hint = document.getElementById("hint");
-const initials = document.getElementById("initials");
-const bgm = document.getElementById("bgm");
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Engagement Invitation</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Almendra:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  </head>
+<body>
+  <!-- Page open count display - can be removed when going live -->
+  <div id="pageOpenCountDisplay" style="position: fixed; top: 5px; left: 5px; background: rgba(0,0,0,0.6); color: white; font-size: 14px; font-weight: bold; padding: 2px 6px; border-radius: 8px; z-index: 1000; user-select: none;">
+    0
+  </div>
 
-let clicked = false;
+  <div id="scene1">
+    <div id="backgroundImage"></div>
+    <img id="initials" src="GA.png" alt="G ♥ A" />
 
-function handleMerge() {
-  if (clicked) return;
-  clicked = true;
+    <div id="heartWrapper">
+      <div id="hint"><br>Tap the heart to see magic</div>
+      <img id="leftHeart" src="left-heart.svg" alt="Left Heart" />
+      <img id="rightHeart" src="right-heart.svg" alt="Right Heart" />
+    </div>
+  </div>
 
-  // Start music
-  bgm.play();
-
-  // Hide hint
-  setTimeout(() => {
-    hint.style.opacity = 0;
-  }, 1500);
-
-  // Add glow to both hearts
-  setTimeout(() => {
-    leftHeart.classList.add("glow");
-    rightHeart.classList.add("glow");
-  }, 1000); // Apply glow after 1 second
-
-  // Show initials after glow and hide hearts
-  setTimeout(() => {
-    leftHeart.style.opacity = 0; // Fade out hearts
-    rightHeart.style.opacity = 0; // Fade out hearts
-    // Give a small delay for opacity transition before hiding display
-    setTimeout(() => {
-      leftHeart.style.display = "none";
-      rightHeart.style.display = "none";
-    }, 500); // Wait for 0.5s opacity transition
-
-    initials.style.display = "block";
-    initials.style.opacity = 1;
-    initials.style.transform = "translate(-50%, -50%) scale(1)";
-  }, 3500); // After glow has been visible for a bit (1000ms + 2500ms for glow effect)
-
-  // After initials are shown, fade out and redirect to next scene
-  setTimeout(() => {
-    const initials = document.getElementById("initials");
-    initials.style.transition = "opacity 3.5s ease";
-    initials.style.opacity = 0;
-
-    setTimeout(() => {
-      window.location.href = "scene2.html";
-    }, 1500); // Wait for fade-out
-  }, 5500); // Keep initials visible for 8 seconds (3500ms + 8000ms)
-}
-
-leftHeart.addEventListener("click", handleMerge);
-rightHeart.addEventListener("click", handleMerge);
+  <audio id="bgm" src="song.mp3" preload="auto"></audio>
+  <script src="script.js"></script>
+</body>
+</html>

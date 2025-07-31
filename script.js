@@ -48,7 +48,7 @@ function handleMerge() {
     setTimeout(() => {
       window.location.href = "scene2.html";
     }, 1500); // Wait for fade-out
-  }, 15000); // Keep initials visible for 8 seconds (3500ms + 8000ms)
+  }, 5500); // Keep initials visible for 8 seconds (3500ms + 8000ms)
 }
 
 leftHeart.addEventListener("click", handleMerge);

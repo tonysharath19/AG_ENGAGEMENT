@@ -1,159 +1,158 @@
 /* Full screen setup */
 body, html {
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    height: 100%;
-    font-family: 'Georgia', serif;
-  }
-  
-  #scene1 {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-  }
-  
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  height: 100%;
+  font-family: 'Georgia', serif;
+}
+
+#scene1 {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
 #backgroundImage {
-  position: absolute;
-  top: 0;
-  left: 0;
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-image: url('SRI.JPG');
+background-size: cover;
+background-position: center center;
+background-repeat: no-repeat;
+z-index: 0;
+}
+
+#heartWrapper {
+  position: relative;
+  z-index: 2;
   width: 100%;
   height: 100%;
-  background-image: url('SRI.JPG');
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-  z-index: 0;
+  display: flex; /* Use flexbox for centering */
+  justify-content: center;
+  align-items: center;
 }
-  
-  #heartWrapper {
-    position: relative;
-    z-index: 2;
-    width: 100%;
-    height: 100%;
-    display: flex; /* Use flexbox for centering */
-    justify-content: center;
-    align-items: center;
-  }
-  
-  #hint {
-    position: absolute;
-    top: 35vh; /* Use viewport height for vertical positioning */
-    width: 100%;
-    font-family: 'Almendra', cursive;
-    text-align: center;
-    font-weight: bold;
-    font-size: 2vw; /* Use viewport width for font size */
-    color: rgb(255, 255, 255);
-    text-shadow: 0 0 10px black;
-    z-index: 3;
-    opacity: 1;
-    transition: opacity 0.5s ease;
-    box-sizing: border-box; /* Include padding in element's total width and height */
-    padding: 0 10px; /* Add some horizontal padding */
-  }
-  
-  #leftHeart, #rightHeart {
-    position: absolute;
-    top: 60%;
-    width: 30vw; /* Make hearts responsive to viewport width */
-    max-width: 125px; /* Set a max-width for larger screens */
-    height: auto;
-    transform: translateY(-50%);
-    transition: all 1s ease, opacity 0.5s ease; /* Added opacity to transition */
-    cursor: pointer;
-  }
-  
-  /* Reverting to original positioning logic for merged hearts */
-  #leftHeart {
-    left: calc(50% - 70px); /* Original value, assuming 70px is half the intended merged width */
-  }
 
-  #rightHeart {
-    right: calc(50% - 70px); /* Original value, assuming 70px is half the intended merged width */
-  }
-  
-  /* The above 70px values are fixed. Let's make them responsive based on the responsive width.
-     If the max-width is 140px, then 70px is half.
-     If the responsive width is 30vw, then half is 15vw.
-     So, the positioning should be based on the responsive width.
-  */
-  #leftHeart {
-    left: calc(50% - min(15vw, 70px)); /* Use min() to ensure it doesn't go beyond 70px on large screens */
-  }
-  
-  #rightHeart {
-    right: calc(50% - min(15vw, 70px)); /* Use min() to ensure it doesn't go beyond 70px on large screens */
-  }
-  
-  
+#hint {
+  position: absolute;
+  top: 35vh; /* Use viewport height for vertical positioning */
+  width: 100%;
+  font-family: 'Almendra', cursive;
+  text-align: center;
+  font-weight: bold;
+  font-size: 2vw; /* Use viewport width for font size */
+  color: rgb(255, 255, 255);
+  text-shadow: 0 0 10px black;
+  z-index: 3;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+  box-sizing: border-box; /* Include padding in element's total width and height */
+  padding: 0 10px; /* Add some horizontal padding */
+}
+
+#leftHeart, #rightHeart {
+  position: absolute;
+  top: 60%;
+  width: 30vw; /* Make hearts responsive to viewport width */
+  max-width: 125px; /* Set a max-width for larger screens */
+  height: auto;
+  transform: translateY(-50%);
+  transition: all 1s ease, opacity 0.5s ease; /* Added opacity to transition */
+  cursor: pointer;
+}
+
+/* Reverting to original positioning logic for merged hearts */
+#leftHeart {
+  left: calc(50% - 70px); /* Original value, assuming 70px is half the intended merged width */
+}
+
+#rightHeart {
+  right: calc(50% - 70px); /* Original value, assuming 70px is half the intended merged width */
+}
+
+/* The above 70px values are fixed. Let's make them responsive based on the responsive width.
+   If the max-width is 140px, then 70px is half.
+   If the responsive width is 30vw, then half is 15vw.
+   So, the positioning should be based on the responsive width.
+*/
+#leftHeart {
+  left: calc(50% - min(15vw, 70px)); /* Use min() to ensure it doesn't go beyond 70px on large screens */
+}
+
+#rightHeart {
+  right: calc(50% - min(15vw, 70px)); /* Use min() to ensure it doesn't go beyond 70px on large screens */
+}
+
+
 #initials {
-    display: none;
-    position: absolute;
-    top: 140px;
-    left: 50%;
-    width: 90vw; /* Make initials responsive to viewport width */
-    max-width: 250px; /* Set a max-width for larger screens */
-    transform: translateX(-50%);
-    z-index: 4;
-    opacity: 1;
-    transition: opacity 1.5s ease;
+  display: none;
+  position: absolute;
+  top: 140px;
+  left: 50%;
+  width: 90vw; /* Make initials responsive to viewport width */
+  max-width: 250px; /* Set a max-width for larger screens */
+  transform: translateX(-50%);
+  z-index: 4;
+  opacity: 0;
+  transition: opacity 1.5s ease;
+}
+
+/* Glow effect */
+.glow {
+  filter: drop-shadow(0 0 10px hotpink) drop-shadow(0 0 30px hotpink);
+}
+
+video#bgVideo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+}
+
+/* Media Queries for finer control on smaller screens */
+@media (max-width: 768px) {
+  #hint {
+    font-size: 5vw;
   }
-  
-  /* Glow effect */
-  .glow {
-    filter: drop-shadow(0 0 10px hotpink) drop-shadow(0 0 30px hotpink);
+  #leftHeart, #rightHeart {
+    width: 35vw; /* Slightly larger on tablets */
+    left: calc(50% - min(17.5vw, 70px)); /* Adjust based on new width */
+    right: calc(50% - min(17.5vw, 70px)); /* Adjust based on new width */
   }
-  
-  video#bgVideo {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    object-fit: cover;
-    z-index: -1;
+  #initials {
+    width: 80vw;
   }
-  
-  /* Media Queries for finer control on smaller screens */
-  @media (max-width: 768px) {
-    #hint {
-      font-size: 5vw;
-    }
-    #leftHeart, #rightHeart {
-      width: 35vw; /* Slightly larger on tablets */
-      left: calc(50% - min(17.5vw, 70px)); /* Adjust based on new width */
-      right: calc(50% - min(17.5vw, 70px)); /* Adjust based on new width */
-    }
-    #initials {
-      width: 80vw;
-    }
+}
+
+@media (max-width: 480px) {
+  #hint {
+    font-size: 6vw;
+    top: 3vh;
   }
-  
-  @media (max-width: 480px) {
-    #hint {
-      font-size: 6vw;
-      top: 3vh;
-    }
-    #leftHeart, #rightHeart {
-      width: 40vw; /* Larger on phones */
-      left: calc(50% - min(20vw, 70px)); /* Adjust based on new width */
-      right: calc(50% - min(20vw, 70px)); /* Adjust based on new width */
-    }
-    #initials {
-      width: 95vw;
-    }
+  #leftHeart, #rightHeart {
+    width: 40vw; /* Larger on phones */
+    left: calc(50% - min(20vw, 70px)); /* Adjust based on new width */
+    right: calc(50% - min(20vw, 70px)); /* Adjust based on new width */
   }
-  
-  @media (max-width: 320px) {
-    #hint {
-      font-size: 7vw;
-    }
-    #leftHeart, #rightHeart {
-      width: 45vw; /* Even larger on very small phones */
-      left: calc(50% - min(22.5vw, 70px)); /* Adjust based on new width */
-      right: calc(50% - min(22.5vw, 70px)); /* Adjust based on new width */
-    }
+  #initials {
+    width: 95vw;
   }
-  
+}
+
+@media (max-width: 320px) {
+  #hint {
+    font-size: 7vw;
+  }
+  #leftHeart, #rightHeart {
+    width: 45vw; /* Even larger on very small phones */
+    left: calc(50% - min(22.5vw, 70px)); /* Adjust based on new width */
+    right: calc(50% - min(22.5vw, 70px)); /* Adjust based on new width */
+  }
+}

@@ -50,8 +50,12 @@ function handleMerge() {
     }, 500); // Wait for 0.5s opacity transition
 
     initials.style.display = "block";
-    initials.style.opacity = 1;
-    initials.style.transform = "translate(-50%, -50%) scale(1)";
+    initials.style.opacity = 0;
+    initials.style.transition = "opacity 3s ease, transform 3s ease";
+    setTimeout(() => {
+      initials.style.opacity = 1;
+      initials.style.transform = "translate(-50%, -50%) scale(1)";
+    }, 100);
   }, 3500); // After glow has been visible for a bit (1000ms + 2500ms for glow effect)
 
   // After initials are shown, fade out and redirect to next scene
